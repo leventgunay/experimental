@@ -15,11 +15,11 @@ Here are some headlines;
 * Apache Commons - basic helpers
 
 
-#### Dev Setup
+#### Dev Setup and Run
 
     ~$ gradle build
 
     ~$ gradle -q run
 
 
-Some explanation
+Now you should be able to have your fun!
