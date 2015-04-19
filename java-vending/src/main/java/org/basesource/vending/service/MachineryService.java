@@ -19,7 +19,7 @@ public abstract class MachineryService<IT extends Serializable, OT extends Seria
         return in.get(input);
     }
 
-    protected void out(OT output) {
+    protected void out(OT... output) {
         out.send(output);
     }
 

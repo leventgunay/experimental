@@ -1,7 +1,10 @@
 package org.basesource.vending.annotations;
 
-/**
- * Created by leventgunay on 17/4/15.
- */
+import java.lang.annotation.*;
+
+@Inherited
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
 public @interface Service {
+
 }

@@ -8,6 +8,10 @@ public interface ICommunicate {
 
     public void goodbye(UserType userType);
 
-    public void ask();
+    public String ask();
+
+    public String ask(String question);
+
+    public void say(String... question);
 
 }

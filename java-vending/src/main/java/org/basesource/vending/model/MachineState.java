@@ -1,4 +1,10 @@
 package org.basesource.vending.model;
 
-public class MachineState {
+public enum MachineState {
+
+    READY,
+    MAINTENANCE,
+    OUT_OF_ORDER,
+    PROCESSING
+
 }
