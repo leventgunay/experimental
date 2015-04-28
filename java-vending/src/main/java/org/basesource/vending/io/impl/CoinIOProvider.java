@@ -15,7 +15,7 @@ public class CoinIOProvider implements InputProvider<Coin>, OutputProvider<Coin>
     public void send(Coin... coins) {
         System.out.print("Money dropped ");
         for(Coin coin : coins) {
-            System.out.print(coin);
+            System.out.print(coin + " ");
         } System.out.print("\n");
     }
 
