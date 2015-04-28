@@ -84,7 +84,9 @@ public class VendingService extends MachineryService<String,String> implements I
 
     @Override
     public void drop(Inventory item) {
-        item.productCount(item.productCount() - 1);
+        if(item != null && item.productCount() > 0) {
+            item.productCount(item.productCount() - 1);
+        }
     }
 
 
