@@ -14,9 +14,9 @@ import java.util.Map;
 @Service
 public class PaymentService extends MachineryService<Coin, Coin> implements IPayment<Coin> {
 
-    private Map<Coin, Integer> cash = new HashMap<Coin, Integer>();
+    protected Map<Coin, Integer> cash = new HashMap<Coin, Integer>();
 
-    private int currentCashAdvance;
+    protected int currentCashAdvance;
 
     @Override
     public Coin advance(String code) {
@@ -50,7 +50,7 @@ public class PaymentService extends MachineryService<Coin, Coin> implements IPay
 
     @Override
     public boolean doingGood() {
-        return currentCashAdvance() > -1 && !cash.isEmpty();
+        return currentCashAdvance() > -1 && cash != null && !cash.isEmpty();
     }
 
     @Override
@@ -60,7 +60,11 @@ public class PaymentService extends MachineryService<Coin, Coin> implements IPay
 
     @Override
     public void loadCash(Map<Coin, Integer> cash) {
-        this.cash.putAll(cash);
+        if(this.cash == null || this.cash.isEmpty() || cash == null || cash.isEmpty()) {
+            this.cash = cash;
+        } else {
+            this.cash.putAll(cash);
+        }
     }
 
     @Override
