@@ -47,7 +47,7 @@ public class CustomizedVendingMachineProcessor extends MachineProcessor {
             payment.advance(communication.ask("Enter cash code: "));
         } else {
             Inventory item = inventory.pull(command);
-            if(payment.purchase(item)) {
+            if(item != null && payment.purchase(item)) {
                 communication.say(item.desc() + " dropped..");
                 inventory.drop(item);
             } else {

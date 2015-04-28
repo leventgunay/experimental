@@ -13,7 +13,7 @@ public class SecurityService extends MachineryService<String, String> implements
 
     @Override
     public boolean isSecure() {
-        return true;
+        return user != null;
     }
 
     @Override
