@@ -6,3 +6,5 @@ gradle
 gradlew*
 *.iml
 node_modules
+static/third
+bower_components
