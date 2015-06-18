@@ -1,0 +1,38 @@
+options:
+    runnerPort: 9009
+    singleRun: true
+    background: false
+    captureTimeout: 30000
+    logLevel: ERROR
+    colors: true
+    files:
+        - build/public/js/**/*.js
+        - app/test/unit/**/*.test.js
+
+    frameworks:
+        - jasmine
+
+phantom:
+    options:
+        browsers:
+            - PhantomJS
+chrome:
+    options:
+        browsers:
+            - Chrome
+firefox:
+    options:
+        browsers:
+            - Firefox
+safari:
+    options:
+        browsers:
+            - Safari
+opera:
+    options:
+        browsers:
+            - Opera
+ie:
+    options:
+        browsers:
+            - Internet Explorer

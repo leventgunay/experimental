@@ -1,0 +1,17 @@
+jshint:
+    src:
+        - app/script/**/*.js
+
+    options:
+        force: true
+        curly: true
+        eqnull: true
+        eqeqeq: true
+        freeze: true
+        noarg: true
+        strict: true
+        unused: true
+        undef: true
+        globals:
+            jQuery: true
+            console: true

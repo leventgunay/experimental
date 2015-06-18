@@ -1,0 +1,19 @@
+options:
+    hostname: localhost
+    keepalive: true
+    open: true
+    base:
+        - build/public
+
+dev:
+    options:
+        port: 9000
+        keepalive: false
+
+run:
+    options:
+        port: 8080
+
+test:
+    options:
+        port: 9090

@@ -1,0 +1,6 @@
+csslint:
+    src:
+        - app/style/**/*.css
+    options:
+        quiet: true
+        csslintrc: config/.csslintrc

@@ -1,0 +1,25 @@
+default:
+  - all
+
+build:
+  - bower:install
+  - csslint
+  - jshint
+  - htmlmin
+  - concat
+
+test:
+  - karma:phantom
+
+run:
+  - connect:run
+
+dev:
+  - connect:dev
+  - watch
+
+all:
+  - build
+  - test
+  - run
+

@@ -1,0 +1,7 @@
+clean:
+    src:
+        - build
+
+    hard:
+        - build
+        - static/third

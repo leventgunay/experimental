@@ -1,0 +1,10 @@
+htmlmin:
+    options:
+        removeComments: true,
+        collapseWhitespace: true
+    files:
+        - expand: true
+          dest: build/public/
+          cwd: app/view/
+          src:
+            - '**/*.html'

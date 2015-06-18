@@ -1,0 +1,4 @@
+install:
+    options:
+        targetDir: ./static/third
+        cleanBowerDir: true

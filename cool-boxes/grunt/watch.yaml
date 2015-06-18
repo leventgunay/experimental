@@ -1,0 +1,22 @@
+options:
+    livereload: true
+
+scripts:
+    files:
+        - app/script/{,*/}*.js
+    tasks:
+        - jshint
+        - concat:js
+
+css:
+    files:
+        - app/style/{,*/}*.css
+    tasks:
+        - csslint
+        - concat:css
+
+html:
+    files:
+        - app/view/{,*/}*.html
+    tasks:
+        - htmlmin
