@@ -19,6 +19,7 @@ dev:
   - watch
 
 all:
+  - clean
   - build
   - test
   - run
