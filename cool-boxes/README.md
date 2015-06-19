@@ -5,7 +5,7 @@ cool-boxes
 Getting Started
 ---------------
 
-This app includes a simple layout experiment which;
+This app includes a simple html layout experiment which demonstrates basic markup manipulations;
 
 Here are some tools and technologies used;
 
@@ -35,7 +35,7 @@ Even shorter to have clean/build/run together by;
 
     ~$ grunt all
 
-Application should be served under *http://localhost:8080/*
+Now, application should be served under *http://localhost:8080/*
 
 
 
@@ -61,7 +61,6 @@ Following executions (depending on your OS and environmental variables) are buil
     ~$ grunt karma:safari
     ~$ grunt karma:opera
     ~$ grunt karma:ie
-
 
 
 #### Automation Testing
