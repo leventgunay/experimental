@@ -8,7 +8,7 @@ css:
 
 js:
     src:
-        - static/third/jqlite/jqlite.1.1.1.min.js
+        - static/third/jquery/dist/jquery.min.js
         - app/script/**/*.js
 
     dest: build/public/js/all.js
