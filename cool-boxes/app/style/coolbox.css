@@ -1,0 +1,72 @@
+.row {
+    margin: 0;
+}
+
+.container-one {
+    background: orange;
+    padding: 15px;
+}
+
+.container-two {
+    background: gray;
+    padding: 20px;
+}
+
+.container-one:hover {
+    border: 10px solid black;
+    padding: 5px;
+}
+
+.container-two:hover {
+    border: 15px solid black;
+    padding: 5px;
+}
+
+.cool-box:hover {
+    border: 5px solid black;
+    padding: 10px;
+}
+
+.cool-box {
+    height: 100px;
+    position:relative;
+    min-height:1px;
+    padding:15px;
+    float:left;
+    cursor: pointer;
+}
+
+.container-one .container-two .cool-box:nth-child(6n+1),
+.container-one .container-two .cool-box:nth-child(6n+2),
+.container-one .container-two .cool-box:nth-child(6n+3) {
+    width: 33.33333333%;
+}
+
+.container-one .container-two .cool-box:nth-child(6n+4),
+.container-one .container-two .cool-box:nth-child(6n+5) {
+    width: 50%
+}
+
+.container-one .container-two .cool-box:nth-child(6n+6) {
+    width: 100%;
+}
+
+.container-one .container-two .cool-box:nth-child(4n+4) {
+    background: blue;
+}
+
+.container-one .container-two .cool-box:nth-child(4n+3) {
+    background: green;
+}
+
+.container-one .container-two .cool-box:nth-child(4n+2) {
+    background: red;
+}
+
+.container-one .container-two .cool-box:nth-child(4n+1) {
+    background: white;
+}
+
+.container-one .container-two .cool-box:last-child {
+    /* highlighted */
+}

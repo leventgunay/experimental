@@ -12,8 +12,7 @@ Here are some tools and technologies used;
 * NodeJS Runtime
 * Grunt Task Runner
 * Karma, Jasmine, Protractor
-* Bootstrap CSS
-* JQuery Lite
+* JQuery, Bootstrap CSS
 
 
 #### Environment Setup
@@ -66,3 +65,13 @@ Following executions (depending on your OS and environmental variables) are buil
 #### Automation Testing
 
 Upcoming..
+
+
+#### Browser Support
+
+Upcoming..
+
+
+#### Contribution
+
+Please feel free to contact within any feedback, idea or pull request to discuss possible improvements and better practices.
