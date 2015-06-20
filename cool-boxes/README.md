@@ -79,7 +79,7 @@ Implementation includes protractor automation and related configuration. You can
 #### Browser Support
 
 * Chrome/FireFox/Opera/Safari (Most of the latest releases are fine. Latest stable releases are tested.)
-* IE9+ (Hasn't been tested.)
+* IE9+ (Should be fine. Hasn't been tested.)
 
 
 
