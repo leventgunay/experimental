@@ -21,7 +21,7 @@
         }
 
         mbody.text(s);
-        mel.finish().fadeIn({
+        mel.finish().fadeIn({ // flash message
             duration: 500,
             done: function() {
                 mel.delay(300).fadeOut({ duration: 200 });
@@ -158,7 +158,7 @@
         }
     }
 
-    $(function() {
+    $(function() { // on document load
 
         init();
 
