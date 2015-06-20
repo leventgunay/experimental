@@ -12,10 +12,26 @@
     padding-bottom: 5px;
 }
 
+.page-header .panel {
+    padding: 0;
+    margin: 0;
+}
+
+.page-header .message {
+    position: fixed;
+    top: 3em;
+    right: 14%;
+    z-index: 100;
+    display: none;
+}
+
 .container-one {
     background: #b3e5fc;
     padding: 35px;
     border-radius: 4px;
+    margin-bottom: 20px;
+    position: relative;
+    min-width: 295px;
 }
 
 .container-one:hover {
@@ -45,20 +61,33 @@
 .cool-box {
     height: 100px;
     position:relative;
-    min-height:1px;
     padding:15px;
     float:left;
     cursor: pointer;
     margin: 0.33333333%;
     border-radius: 4px;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select:none;
+    -o-user-select: none;
+    user-select: none;
+    font-size: 20px;
 }
 
 .cool-box .box-heading .close {
     display: none;
+    outline: none;
+    position: absolute;
+    right: 14px;
+    top: 14px;
+
 }
 
 .cool-box:hover .box-heading .close {
     display: block;
+    right: 9px;
+    top: 9px;
 }
 
 .container-one .container-two .cool-box:nth-child(6n+1),
@@ -94,4 +123,22 @@
 
 .container-one .container-two .cool-box:last-child {
     box-shadow: 0 0 10px black;
+}
+
+.bg-light-gray {
+    background-color: #CFD8DC;
+}
+
+.bg-dark-gray {
+    background-color: #546E7A;
+}
+
+@media (max-width: 560px) {
+    .page-header blockquote {
+        display: block;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        margin-top: 10px;
+    }
 }

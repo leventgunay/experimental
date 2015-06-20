@@ -13,18 +13,34 @@
     <body>
         <div class="container max-w960">
             <div class="page-header">
-                <h2>Cool Boxes
-                    <blockquote class="small">HTML Layout Experiment</blockquote></h2>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h2>Cool Boxes
+                            <blockquote class="small">HTML Layout Experiment</blockquote></h2>
+                    </div>
+                    <div class="message panel panel-default">
+                        <div class="panel-body"> Some message here! </div>
+                    </div>
+                </div>
+            </div>
+            <div class="progress">
+                <div class="progress-bar progress-bar-success progress-bar-striped box-count-existing">
+                    Existing : <span>0</span>
+                </div>
+                <div class="progress-bar progress-bar-warning progress-bar-striped box-count-removed">
+                    Deleted : <span>0</span>
+                </div>
             </div>
             <div class="container-one row">
                 <div class="container-two row">
-                    <div class="cool-box">
+                    <div class="cool-box" unselectable="on">
                         <div class="box-heading">
-                            title
+                            <span></span>
                             <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         </div>
                         <div class="box-body">
-                            body
+                            <span class="prev"></span>
+                            <span class="next pull-right"></span>
                         </div>
                     </div>
                 </div>
