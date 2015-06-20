@@ -68,7 +68,7 @@
             result = list.splice(list.length && (list.indexOf(p) + 1), 0, c);
         }
 
-        storeList(list);
+        store('coolboxlist', list);
 
         if(n) {
             next.find('.box-body .prev:first').text(isRemoving ? (p || '') : c);
@@ -105,6 +105,8 @@
 
         updateProgress(last, ++removedCount);
 
+        store('coolboxRemovedCount', removedCount);
+
         return removedId;
     }
 
@@ -118,20 +120,35 @@
                     .css({ width: pie * removedC + '%'}).children('span:first').text(removedC);
     }
 
-    function storeList(list) {
-
+    function store(name, val) {
+        if(localStorage) {
+            if(Array.isArray(val)) {
+                localStorage[name] = val.join('-');
+            } else if(typeof val === 'object') {
+                localStorage[name] = JSON.stringify(val);
+            } else {
+                localStorage[name] = val;
+            }
+        }
     }
 
-    function restoreList() {
-        return [];
+    function restore(name) {
+        return localStorage && localStorage[name];
     }
 
     function init() {
-        var rlist = restoreList(),
+        var rlist = restore('coolboxlist'),
             templ = $('.container-one .container-two .cool-box:first'),
             prev = undefined;
 
+        var removedC = restore('coolboxRemovedCount');
+        if(removedC && removedC.length) {
+            removedCount = parseInt(removedC);
+        }
+
         if(rlist && rlist.length) {
+            rlist = rlist.split('-');
+            last = rlist.length + removedCount;
             for(var ind = 0; ind < rlist.length; ind++) {
                 add(prev, templ, rlist[ind]); // restore one by one
                 prev = templ; templ = prev.clone();
