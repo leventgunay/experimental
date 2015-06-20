@@ -111,6 +111,8 @@
     }
 
     function updateProgress(totalC, removedC) {
+        if(totalC <= removedC) { return; }
+
         var pie = 100 / totalC, existingC = totalC - removedC;
 
         $('.container .progress .box-count-existing:first')
@@ -148,7 +150,7 @@
 
         if(rlist && rlist.length) {
             rlist = rlist.split('-');
-            last = rlist.length + removedCount;
+            last = removedCount;
             for(var ind = 0; ind < rlist.length; ind++) {
                 add(prev, templ, rlist[ind]); // restore one by one
                 prev = templ; templ = prev.clone();
