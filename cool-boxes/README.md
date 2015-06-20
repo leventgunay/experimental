@@ -15,6 +15,7 @@ Here are some tools and technologies used;
 * JQuery, Bootstrap CSS
 
 
+
 #### Environment Setup
 
 The implementation requires [NodeJs](http://nodejs.org/) runtime configuration with [Grunt](http://gruntjs.com/) task runner and packages, so
@@ -50,10 +51,12 @@ For development purposes, you can also use following execution and ports;
 *http://localhost:35729/* will be listening js/css/html changes to reflect them through livereload.
 
 
+
 #### Unit Testing
 
 Following executions (depending on your OS and environmental variables) are built in for unit testing;
 
+    ~$ grunt test
     ~$ grunt karma:phantom
     ~$ grunt karma:chrome
     ~$ grunt karma:firefox
@@ -62,14 +65,22 @@ Following executions (depending on your OS and environmental variables) are buil
     ~$ grunt karma:ie
 
 
+
 #### Automation Testing
 
-Upcoming..
+Implementation includes protractor automation and related configuration. You can try following executions depending on OS and browser preferences.
+
+    ~$ grunt itest
+    ~$ grunt protractor:chrome
+    ~$ grunt protractor:firefox (not ready)
+
 
 
 #### Browser Support
 
-Upcoming..
+* Chrome/FireFox/Opera/Safari (Most of the latest releases are fine. Latest stable releases are tested.)
+* IE9+ (Hasn't been tested.)
+
 
 
 #### Contribution
