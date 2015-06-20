@@ -18,6 +18,10 @@ dev:
   - connect:dev
   - watch
 
+itest:
+  - connect:test
+  - protractor:chrome
+
 all:
   - clean
   - build

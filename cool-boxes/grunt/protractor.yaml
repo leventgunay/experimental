@@ -1,0 +1,26 @@
+options:
+    keepAlive: false
+    noColor: false
+    args:
+        directConnect: true
+        framework: jasmine2
+
+        params:
+            testParam: testtest
+
+        specs:
+            - app/test/ptor/**/*.itest.js
+
+        jasmineNodeOpts:
+            showColors: true
+            defaultTimeoutInterval: 30000
+            isVerbose: true
+            includeStackTrace: true
+
+chrome:
+    configFile: app/test/ptor/_chrome.conf.js
+    args:
+        browser: chrome
+        capabilities:
+        browserName: chrome
+

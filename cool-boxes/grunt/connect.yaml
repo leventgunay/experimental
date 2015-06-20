@@ -1,6 +1,6 @@
 options:
     hostname: localhost
-    keepalive: true
+    keepalive: false
     open: true
     base:
         - build/public
@@ -8,12 +8,14 @@ options:
 dev:
     options:
         port: 9000
-        keepalive: false
 
 run:
     options:
         port: 8080
+        keepalive: true
 
 test:
     options:
         port: 9090
+        open: false
+
