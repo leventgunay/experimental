@@ -2,6 +2,10 @@
     margin: 0;
 }
 
+.footer.row {
+    margin-bottom: 30px;
+}
+
 .max-w960 {
     max-width: 960px;
 }

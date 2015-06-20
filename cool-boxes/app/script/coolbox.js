@@ -1,8 +1,8 @@
-(function($) {
+var CoolBox = (function($, BaseBox) {
 
     var list = [], removedCount = 0, last = 0;
 
-    function message(s, severity) {
+    var message = BaseBox.message = function (s, severity) {
         var mel = $('.page-header .message:first'), mbody = mel.children('.panel-body:first');
 
         mbody.removeClass('bg-info bg-danger bg-success');
@@ -27,9 +27,9 @@
                 mel.delay(300).fadeOut({ duration: 200 });
             }
         });
-    }
+    };
 
-    function insertNewBox(e) {
+    var insertNewBox = BaseBox.insertNewBox = function (e) {
         var box = $(this),
         nbox = box.clone();
 
@@ -38,9 +38,9 @@
         message('Box Inserted: ' + add(box, nbox), 'success');
 
         e.preventDefault();
-    }
+    };
 
-    function deleteBox(e) {
+    var deleteBox = BaseBox.deleteBox = function (e) {
         var el = $(this), box = el.parents('.cool-box:first');
 
         box.parent().removeClass('bg-dark-gray').addClass('bg-light-gray');
@@ -53,9 +53,9 @@
 
         e.stopPropagation();
         e.preventDefault();
-    }
+    };
 
-    function setIds(prev, curr, next) {
+    var setIds = BaseBox.setIds = function (prev, curr, next) {
         var p = prev && prev.data('id'),
             c = curr && curr.data('id'),
             n = next && next.data('id'),
@@ -80,9 +80,9 @@
             curr.find('.box-heading span:first').text(c);
             return c; // added
         } return result[0]; // removed
-    }
+    };
 
-    function add(prev, el, id) {
+    var add = BaseBox.add = function (prev, el, id) {
         updateProgress(++last, removedCount);
 
         var newId = id || last;
@@ -94,9 +94,9 @@
         el.insertAfter(prev);
 
         return newId;
-    }
+    };
 
-    function remove(box) {
+    var remove = BaseBox.remove = function (box) {
         var prev = box.prev(), next = box.next();
 
         var removedId = setIds(prev, box, next);
@@ -108,9 +108,9 @@
         store('coolboxRemovedCount', removedCount);
 
         return removedId;
-    }
+    };
 
-    function updateProgress(totalC, removedC) {
+    var updateProgress = BaseBox.updateProgress = function (totalC, removedC) {
         if(totalC <= removedC) { return; }
 
         var pie = 100 / totalC, existingC = totalC - removedC;
@@ -120,9 +120,9 @@
 
         $('.container .progress .box-count-removed:first')
                     .css({ width: pie * removedC + '%'}).children('span:first').text(removedC);
-    }
+    };
 
-    function store(name, val) {
+    var store = BaseBox.store = function (name, val) {
         if(localStorage) {
             if(Array.isArray(val)) {
                 localStorage[name] = val.join('-');
@@ -132,16 +132,16 @@
                 localStorage[name] = val;
             }
         }
-    }
+    };
 
-    function restore(name) {
+    var restore = BaseBox.restore = function (name) {
         return localStorage && localStorage[name];
-    }
+    };
 
-    function init() {
+    var init = BaseBox.init = function () {
         var rlist = restore('coolboxlist'),
             templ = $('.container-one .container-two .cool-box:first'),
-            prev = undefined;
+            prev;
 
         var removedC = restore('coolboxRemovedCount');
         if(removedC && removedC.length) {
@@ -158,9 +158,9 @@
         } else {
             add(prev, templ); // only
         }
-    }
+    };
 
-    $(function() { // on document load
+    BaseBox.onLoad = function() {
 
         init();
 
@@ -168,6 +168,9 @@
 
         $('.container-one .container-two').delegate('.cool-box .box-heading .close', 'click.deleteBox', deleteBox);
 
-    });
+    };
 
-})(jQuery);
+    $(BaseBox.onLoad); // on document load
+
+    return BaseBox;
+})(jQuery, {});
