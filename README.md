@@ -7,5 +7,5 @@ Stay tuned! And contribute!
 
 Please find following projects covered;
 
-* **cool-box** // HTML Layout Experiment **w/**NodeJs/Grunt/Bower/Karma/Jasmine/Protractor/JQuery/Bootstrap
-* **java-vending** // Basic vending machine impl **w/**Java/Gradle/JUnit/Mockito/PowerMock
+* **cool-box** // HTML Layout Experiment **w**/NodeJs/Grunt/Bower/Karma/Jasmine/Protractor/JQuery/Bootstrap
+* **java-vending** // Basic vending machine impl **w**/Java/Gradle/JUnit/Mockito/PowerMock
