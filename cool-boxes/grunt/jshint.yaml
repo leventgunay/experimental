@@ -3,15 +3,34 @@ jshint:
         - app/script/**/*.js
 
     options:
-        force: true
+        force: false
+        forin: true
+        funcscope: true
+        futurehostile: true
+        iterator: true
+        latedef: true
         curly: true
+        nocomma: true
+        nonbsp: true
+        nonew: true
+        notypeof: true
+        shadow: true
         eqnull: true
         eqeqeq: true
         freeze: true
         noarg: true
-        strict: true
+        globalstrict: true
+        evil: true
+        expr: true
+        lastsemic: true
+        loopfunc: true
+        noyield: true
+        scripturl: true
+        supernew: true
+        browser: true
         unused: true
+        devel: true
         undef: true
         globals:
             jQuery: true
-            console: true
+            localStorage: true

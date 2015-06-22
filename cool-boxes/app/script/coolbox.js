@@ -1,3 +1,5 @@
+'use strict';
+
 var CoolBox = (function($, BaseBox) {
 
     var list = [], removedCount = 0, last = 0;
@@ -45,7 +47,7 @@ var CoolBox = (function($, BaseBox) {
 
         box.parent().removeClass('bg-dark-gray').addClass('bg-light-gray');
 
-        if(box.index() || !box.is(':last-child')) {
+        if(box.index() || !box.is(':last-child')) {
             message('Box Deleted: ' + remove(box));
         } else {
             message('Never eat the last donut!', 'danger');
@@ -71,18 +73,20 @@ var CoolBox = (function($, BaseBox) {
         store('coolboxlist', list);
 
         if(n) {
-            next.find('.box-body .prev:first').text(isRemoving ? (p || '') : c);
+            next.find('.box-body .prev:first').text(isRemoving ? (p || '') : c);
         } if(p) {
-            prev.find('.box-body .next:first').text(isRemoving ? (n || '') : c);
+            prev.find('.box-body .next:first').text(isRemoving ? (n || '') : c);
         } if(c && !isRemoving) {
-            curr.find('.box-body .prev:first').text(p || '');
-            curr.find('.box-body .next:first').text(n || '');
+            curr.find('.box-body .prev:first').text(p || '');
+            curr.find('.box-body .next:first').text(n || '');
             curr.find('.box-heading span:first').text(c);
             return c; // added
         } return result[0]; // removed
     };
 
     var add = BaseBox.add = function (prev, el, id) {
+        if(!el) { return; } // invalid
+
         updateProgress(++last, removedCount);
 
         var newId = id || last;
@@ -154,7 +158,7 @@ var CoolBox = (function($, BaseBox) {
             for(var ind = 0; ind < rlist.length; ind++) {
                 add(prev, templ, rlist[ind]); // restore one by one
                 prev = templ; templ = prev.clone();
-            } delete rlist;
+            }
         } else {
             add(prev, templ); // only
         }
@@ -174,3 +178,5 @@ var CoolBox = (function($, BaseBox) {
 
     return BaseBox;
 })(jQuery, {});
+
+CoolBox.version = '0.0.1.RC';
