@@ -85,15 +85,15 @@ var CoolBox = (function($, BaseBox) {
     };
 
     var add = BaseBox.add = function (prev, el, id) {
-        if(!el) { return; } // invalid
+        if(!el || !el.jquery) { return; } // invalid
 
-        updateProgress(++last, removedCount);
+        CoolBox.updateProgress(++last, removedCount);
 
         var newId = id || last;
 
         el.data('id', newId);
 
-        setIds(prev, el, prev && prev.next());
+        CoolBox.setIds(prev, el, prev && prev.next());
 
         el.insertAfter(prev);
 
