@@ -22,5 +22,5 @@ chrome:
     args:
         browser: chrome
         capabilities:
-        browserName: chrome
+            browserName: chrome
 

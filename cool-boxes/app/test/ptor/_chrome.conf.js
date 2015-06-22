@@ -6,9 +6,12 @@ exports.config = {
   },
 
   beforeLaunch: function() {
-    // check out webdriver
+    console.log('Checking chrome webdriver.. ');
+    console.log('./node_modules/grunt-protractor-runner/node_modules/.bin/webdriver-manager update --chrome');
+    console.log('If it fails or times out, you might want to execute the command above manually and re-run "grunt itest"');
+
     var exec = require('child_process').execSync;
-    console.log(exec("./node_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager update --chrome", { encoding: 'utf8' }));
+    exec("./node_modules/grunt-protractor-runner/node_modules/.bin/webdriver-manager update --chrome", { encoding: 'utf8', timeout: 300000 });
   },
 
   onPrepare: function() {
