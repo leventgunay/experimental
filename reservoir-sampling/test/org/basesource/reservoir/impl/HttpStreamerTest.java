@@ -1,4 +1,4 @@
-package net.researchgate.challenge.impl;
+package org.basesource.reservoir.impl;
 
 import org.junit.Test;
 

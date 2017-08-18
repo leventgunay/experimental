@@ -1,7 +1,7 @@
-package net.researchgate.challenge.impl;
+package org.basesource.reservoir.impl;
 
-import net.researchgate.challenge.Sampler;
-import net.researchgate.challenge.Streamer;
+import org.basesource.reservoir.Sampler;
+import org.basesource.reservoir.Streamer;
 
 import java.security.SecureRandom;
 import java.util.*;

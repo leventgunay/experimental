@@ -1,4 +1,4 @@
-package net.researchgate.challenge;
+package org.basesource.reservoir;
 
 import java.util.stream.IntStream;
 

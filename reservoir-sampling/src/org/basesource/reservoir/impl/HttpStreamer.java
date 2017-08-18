@@ -1,4 +1,4 @@
-package net.researchgate.challenge.impl;
+package org.basesource.reservoir.impl;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;

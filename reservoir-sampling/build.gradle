@@ -1,0 +1,54 @@
+apply plugin: 'java'
+
+group 'org.basesource'
+version = '0.0.1'
+sourceCompatibility = 1.8
+
+task run(type: JavaExec, dependsOn: classes) {
+    main = 'Main'
+    standardInput = System.in
+    classpath sourceSets.main.runtimeClasspath
+    classpath configurations.runtime
+}
+
+allprojects {
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+        }
+    }
+}
+
+test {
+    useJUnit()
+
+    include 'org/basesource/reservoir/**/*Test.class'
+
+    ignoreFailures true
+
+    enableAssertions true
+
+    reports.html.enabled = false
+    outputs.upToDateWhen { false }
+
+    testLogging {
+        quiet {
+            showExceptions = true
+            events "passed", "skipped", "failed"
+            exceptionFormat "full"
+        }
+    }
+}
+
+repositories {
+    jcenter()
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
+    compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.0'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '1.9.5'
+}

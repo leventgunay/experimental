@@ -1,8 +1,8 @@
-import net.researchgate.challenge.Streamer;
-import net.researchgate.challenge.impl.BaseStreamer;
-import net.researchgate.challenge.impl.HttpStreamer;
-import net.researchgate.challenge.impl.RandomSampler;
-import net.researchgate.challenge.impl.RandomStreamer;
+import org.basesource.reservoir.Streamer;
+import org.basesource.reservoir.impl.BaseStreamer;
+import org.basesource.reservoir.impl.HttpStreamer;
+import org.basesource.reservoir.impl.RandomSampler;
+import org.basesource.reservoir.impl.RandomStreamer;
 
 public class Main {
 

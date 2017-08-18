@@ -1,4 +1,4 @@
-package net.researchgate.challenge;
+package org.basesource.reservoir;
 
 public interface Sampler {
 
