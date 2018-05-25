@@ -1,0 +1,36 @@
+{
+  "name": "chatngo",
+  "version": "0.0.1",
+  "description": "Description for chatngo",
+  "private": true,
+  "license": "UNLICENSED",
+  "dependencies": {
+    "json-fetch": "^7.5.0",
+    "randomstring": "^1.1.5",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-md": "^1.3.2",
+    "react-stomp": "^3.2.0",
+    "react-talk": "^1.0.0",
+    "sillyname": "^0.1.0",
+    "username-generator": "^1.0.3"
+  },
+  "devDependencies": {
+    "gradle": "^1.0.9",
+    "react-scripts": "1.1.4"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "resolutions": {
+    "source-map": "0.6.1"
+  },
+  "scripts": {
+    "clean": "rm -rf build src/main/webapp",
+    "build": "npm run clean && react-scripts build && mv build src/main/webapp",
+    "start": "npm run build && npm run serve",
+    "prestart": "npm install && gradle build",
+    "serve": "gradle bootRun",
+    "test": "react-scripts test --env=jsdom && gradle check"
+  }
+}
