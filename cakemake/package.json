@@ -1,0 +1,33 @@
+{
+  "name": "cakemake",
+  "version": "0.0.1",
+  "description": "Simple full stack CRUD implementation.",
+  "private": false,
+  "license": "MIT",
+  "dependencies": {
+    "json-fetch": "^7.5.1",
+    "randomstring": "^1.1.5",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-md": "^1.4.2",
+    "react-router-dom": "^4.3.1",
+    "sillyname": "^0.1.0"
+  },
+  "devDependencies": {
+    "gradle": "^1.0.9",
+    "react-scripts": "1.1.4"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "resolutions": {
+    "source-map": "0.6.1"
+  },
+  "scripts": {
+    "clean": "rm -rf build src/main/webapp",
+    "build": "npm run clean && react-scripts build && mv build src/main/webapp",
+    "start": "npm run build && npm run serve",
+    "serve": "gradle bootRun",
+    "test": "react-scripts test --env=jsdom && gradle check"
+  }
+}
