@@ -28,6 +28,7 @@
     "build": "npm run clean && react-scripts build && mv build src/main/webapp",
     "start": "npm run build && npm run serve",
     "serve": "gradle bootRun",
+    "prestart": "npm install && gradle build",
     "test": "react-scripts test --env=jsdom && gradle check"
   }
 }
