@@ -1,5 +1,7 @@
 # Node.js Assignment (Serverless + eventing)
 
+> https://gitlab.com/new10-public/assignments/nodejs-assignment
+
 > We are going to (re)write a simple loan application, that will be split in two apps and communicate with each other through events & commands. The main goal of this assignment is to test your skills understanding, implementing new functionality, refactoring and writing tests. The current code is full of bad practices and inconsistencies, and it's your goal to make it shine, keeping it simple enough.
 
 ### Requirements
