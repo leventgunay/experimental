@@ -7,21 +7,25 @@ const { ok, error } = require('../core/util')
 module.exports.createLoan = async ({ pathParameters }) => {
     const { amount, companyId } = pathParameters
 
-    return fetch(
-        `https://api.overheid.io/openkvk/${companyId}?ovio-api-key=${process.env.OVIO_API_KEY}`
-    ).then(res => {
-        if (res.ok) {
-            return res.json().then(company => {
-                if (company.actief) {
-                    return create(Loan, { amount, company })
-                } else {
-                    return error(400, 'Company is not active.')
-                }
-            })
-        } else {
-            return error(400, 'Company not found by the given id.')
-        }
-    })
+    return (
+        amount &&
+        companyId &&
+        fetch(
+            `https://api.overheid.io/openkvk/${companyId}?ovio-api-key=${process.env.OVIO_API_KEY}`
+        ).then(res => {
+            if (res.ok) {
+                return res.json().then(company => {
+                    if (company.actief) {
+                        return create(Loan, { amount, company })
+                    } else {
+                        return error(400, 'Company is not active.')
+                    }
+                })
+            } else {
+                return error(400, 'Company not found by the given id.')
+            }
+        })
+    )
 }
 
 module.exports.deleteLoan = async ({ pathParameters }) => {

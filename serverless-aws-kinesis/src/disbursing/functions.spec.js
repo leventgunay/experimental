@@ -1,7 +1,7 @@
-var { function5 } = require('./functions')
+var { disbursingLoan } = require('./functions')
 
-describe('functions', () => {
-    it('function5', async () => {
-        expect(true).toBe(true)
+describe('testing disbursing functions', () => {
+    it('initials', async () => {
+        expect(disbursingLoan).toBeDefined()
     })
 })
