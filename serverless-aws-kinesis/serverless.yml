@@ -8,11 +8,17 @@ provider:
     APP_NAME: ${self:service}
     AWS_ACCESS_KEY_ID: id_key
     AWS_SECRET_ACCESS_KEY: access_key
+    OVIO_API_KEY: ovio_api_key
 
 package:
   exclude:
     - .env
     - coverage/**
+  iamRoleStatements:
+    - Effect: "Allow"
+      Resource: "*"
+      Action:
+        - "kinesis:*"
 
 plugins:
   - serverless-pseudo-parameters
@@ -47,3 +53,25 @@ functions:
       - http:
           path: /loans/disburse/{id}
           method: patch
+
+  disbursingLoan:
+    handler: src/disbursing/functions.disbursingLoan
+    events:
+      - stream:
+          type: kinesis
+          batchSize: 50
+          enabled: true
+          startingPosition: LATEST
+          arn:
+            Fn::GetAtt:
+              - DisbursingStream # CloudFormation reference defined below
+              - Arn
+
+resources:
+  Resources:
+    # Stream
+    DisbursingStream:
+      Type: AWS::Kinesis::Stream
+      Properties:
+        Name: DisbursingStream
+        ShardCount: 1

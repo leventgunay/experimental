@@ -1,14 +1,31 @@
-const { create, deleteBy, readAll } = require('../core/crud')
+const fetch = require('node-fetch')
+const { create, deleteBy, readBy, readAll } = require('../core/crud')
 const { Loan } = require('../core/models/loan')
+const { put } = require('../core/streaming')
+const { ok, error } = require('../core/util')
 
-module.exports.createLoan = async event => {
-    const { amount } = event.pathParameters
+module.exports.createLoan = async ({ pathParameters }) => {
+    const { amount, companyId } = pathParameters
 
-    return create(Loan, { amount })
+    return fetch(
+        `https://api.overheid.io/openkvk/${companyId}?ovio-api-key=${process.env.OVIO_API_KEY}`
+    ).then(res => {
+        if (res.ok) {
+            return res.json().then(company => {
+                if (company.actief) {
+                    return create(Loan, { amount, company })
+                } else {
+                    return error(400, 'Company is not active.')
+                }
+            })
+        } else {
+            return error(400, 'Company not found by the given id.')
+        }
+    })
 }
 
-module.exports.deleteLoan = async event => {
-    const { id } = event.pathParameters
+module.exports.deleteLoan = async ({ pathParameters }) => {
+    const { id } = pathParameters
 
     return deleteBy(Loan, id)
 }
@@ -17,11 +34,29 @@ module.exports.listLoans = async () => {
     return readAll(Loan)
 }
 
-module.exports.disburseLoan = async () => {
-    return {
-        statusCode: 501,
-        body: 'Not Implemented',
-    }
+module.exports.disburseLoan = ({ pathParameters }, context, callback) => {
+    const { id } = pathParameters
+    // look up for the loan
+    readBy(Loan, id).then(res => {
+        if (res.ok) {
+            // stream
+            put(JSON.stringify(pathParameters))
+                .then(res => {
+                    callback(
+                        null,
+                        ok({
+                            message: 'Disbursement started.',
+                        })
+                    )
+                })
+                .catch(err => {
+                    console.log(err)
+                    callback(null, error(500, 'Couldnt initiate loan disbursement.'))
+                })
+        } else {
+            callback(null, res)
+        }
+    })
 }
 
 module.exports.disburseComplete = async () => {

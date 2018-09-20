@@ -1,4 +1,5 @@
 const dynamo = require('dynamodb')
+const { ok, error } = require('../core/util')
 
 dynamo.AWS.config.update({
     region: 'localhost',
@@ -18,14 +19,15 @@ function db(cb) {
                     res()
                 }
             })
+        }).catch(e => {
+            return error(400, e.stack)
         })
     } catch (e) {
-        return {
-            statusCode: 500,
-            body: e.stack,
-        }
+        return error(500, e.stack)
     }
 }
+
+module.exports.db = db
 
 module.exports.create = (model, value) => {
     if (model && value) {
@@ -36,10 +38,7 @@ module.exports.create = (model, value) => {
                     rej(err)
                 }
 
-                res({
-                    statusCode: 200,
-                    body: JSON.stringify(obj),
-                })
+                res(ok(obj))
             })
         })
     }
@@ -49,16 +48,28 @@ module.exports.deleteBy = (model, by) => {
     if (model && by) {
         return db(res => {
             model.destroy(by, { ReturnValues: 'ALL_OLD' }, function(err, obj) {
-                if (!err) {
-                    res({
-                        statusCode: 200,
-                        body: JSON.stringify(obj),
-                    })
+                if (!err && obj) {
+                    res(ok(obj))
                 } else {
-                    res({
-                        statusCode: 404,
-                        body: 'Entity not found',
-                    })
+                    res(error(404, 'Entity not found'))
+                }
+            })
+        })
+    }
+}
+
+module.exports.readBy = (model, by) => {
+    if (model) {
+        return db((res, rej) => {
+            model.query(by).exec((err, result) => {
+                if (err) {
+                    rej(err)
+                } else {
+                    if (result.Count) {
+                        res(ok(result.Items[0]))
+                    } else {
+                        res(error(404, 'Entity not found'))
+                    }
                 }
             })
         })
@@ -75,10 +86,7 @@ module.exports.readAll = model => {
                     if (err) {
                         rej(err)
                     } else {
-                        res({
-                            statusCode: 200,
-                            body: JSON.stringify(list.Items),
-                        })
+                        res(ok(list.Items))
                     }
                 })
         })

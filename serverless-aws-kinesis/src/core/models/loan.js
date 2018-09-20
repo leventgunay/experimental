@@ -10,6 +10,7 @@ const Loan = dynamo.define('Loan', {
     schema: {
         id: dynamo.types.uuid(),
         amount: Joi.number().required(),
+        company: Joi.object().required(),
         status: Joi.string()
             .default(OFFERED)
             .allow(OFFERED, DISBURSED),
