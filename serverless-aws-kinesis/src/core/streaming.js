@@ -19,7 +19,6 @@ const put = (data = '', cb = () => {}) => {
         cb
     )
 
-    console.log(req)
     return req.promise()
 }
 

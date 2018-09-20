@@ -45,7 +45,7 @@ module.exports.disburseLoan = ({ pathParameters }, context, callback) => {
         if (res.ok) {
             // stream
             put(JSON.stringify(pathParameters))
-                .then(res => {
+                .then(() => {
                     callback(
                         null,
                         ok({
