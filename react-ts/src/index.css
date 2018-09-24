@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+.md-media--42-59 {
+    padding-bottom: 140%;
+}
+
+a {
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+a .md-chip {
+    cursor: pointer;
+    margin: 0 10px 12px 0
+}
+
+.md-card-title .md-btn.md-btn--icon {
+    padding-top: 0;
+    background: none;
+}
+
+.md-card-title .md-btn.md-btn--icon .md-icon span {
+    font: icon;
+    left: 16px;
+    position: absolute;
+    bottom: 0;
+}
+
+.md-expansion-panel-list.md-cell {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+} 
+
+.md-cell .md-chip.md-chip--avatar {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
