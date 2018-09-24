@@ -31,7 +31,11 @@ export const EpisodeDisplay = ({ location, history }: RouteComponentProps) => {
                 <Chip label={episode.season} avatar={<Avatar>S</Avatar>} />
                 <Chip label={episode.number} avatar={<Avatar>E</Avatar>} />
                 <Chip label={episode.airdate} avatar={<Avatar icon={<FontIcon>today</FontIcon>} />} />
-                <Chip label={episode.airtime} avatar={<Avatar icon={<FontIcon>access_time</FontIcon>} />} />
+                {
+                    episode.airtime && (
+                        <Chip label={episode.airtime} avatar={<Avatar icon={<FontIcon>access_time</FontIcon>} />} />
+                    )
+                }
             </section>
         </Paper>
     ) || 'Not found.'
