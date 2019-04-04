@@ -1,0 +1,25 @@
+.md-card.md-block-centered {
+    width: 60vw;
+    height: 95vh;
+    min-height: 422px;
+}
+
+section.md-card-text {
+    height: 75vh;
+    overflow-y: scroll;
+    min-height: 300px;
+}
+
+.md-icon-separator span.md-icon-text {
+    width: 80%;
+    white-space: pre-line;
+    word-break: break-all;
+}
+
+.md-list .md-list-item .md-tile-content--left-icon {
+    padding-left: 27px;
+}
+
+.md-list .md-list-item .md-tile-content--left-icon .md-text {
+    white-space: initial;
+}
