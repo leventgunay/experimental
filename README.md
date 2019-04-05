@@ -22,6 +22,9 @@ Stay tuned! Enjoy and contribute!
 
 * **serverless-aws-kinesis** // Serverless Streaming service implementation **w**/AWS Lambda/Kinesis/DynamoDB
 
+* **twitter-streaming** // Full Stack Web application featuring Twitter Streaming API **w**/Java 8/Spring Boot/Spring Integration Twitter/ReactJs
+
+
 
 
 
